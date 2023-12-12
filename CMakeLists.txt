@@ -526,6 +526,21 @@ IF(WIN32)
                                     -P ${CMAKE_SOURCE_DIR}/cmake/ConfigureFile.cmake
                        )
     ADD_SUBDIRECTORY(wininstall)
+  ELSE()
+	  INSTALL(TARGETS ${LIBRARY_NAME}
+		  DESTINATION ${INSTALL_LIBDIR}
+		  COMPONENT ConnectorCpp)
+	  INSTALL(FILES
+		  ${CMAKE_SOURCE_DIR}/README
+		  DESTINATION
+		  "${INSTALL_DOCDIR}"
+		  COMPONENT Documentation)
+	  INSTALL(FILES
+		  ${CMAKE_SOURCE_DIR}/COPYING
+		  DESTINATION
+		  "${INSTALL_LICENSEDIR}"
+		  COMPONENT Documentation)
+	  ADD_SUBDIRECTORY(include)
   ENDIF()
 ELSE()
   IF(APPLE)
