@@ -1,9 +1,9 @@
 include(FindPackageHandleStandardArgs)
 
 if (MSVC)
-	set(mariadb_connector_c_name mariadb)
-else()
 	set(mariadb_connector_c_name libmariadb)
+else()
+	set(mariadb_connector_c_name mariadb)
 endif()
 
 find_path(MARIADB_CLIENT_INCLUDE_DIR
